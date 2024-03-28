@@ -9,8 +9,12 @@ public class contactUs {
     @Test
     public static void Order() throws AWTException, InterruptedException {
 
+        String expectedTitle = "Automation Exercise";
         WebDriver driver = new ChromeDriver();
         driver.get("https://automationexercise.com/");
+        String actualResult = driver.getTitle();
+
+        Assert.assertEquals(expectedTitle,actualResult);
 
         driver.manage().window().maximize();
 
