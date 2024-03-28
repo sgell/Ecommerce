@@ -6,11 +6,16 @@ import org.testng.annotations.Test;
 public class Registration {
     @Test
     public void openAutomationURL(){
+        String expectedTitle = "Automation Exercise";
         WebDriver driver = new ChromeDriver();
         driver.get("https://automationexercise.com/");
         driver.manage().window().maximize();
         driver.findElement(By.cssSelector("#header > div > div > div > div.col-sm-8 > div > " +
                 "ul > li:nth-child(4) > a")).click();
+        String actualTitle = driver.getTitle();
+
+       Assert.assertEquals(actualTitle,expectedTitle); 
+        
 
                 //username
         WebElement userName = driver.findElement(By.name("name"));
