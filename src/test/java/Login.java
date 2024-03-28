@@ -7,9 +7,13 @@ import org.testng.annotations.Test;
 public class Login{
 @Test
     public static void loginn(){
-
+        
+    String expectedTitle = "Automation Exercise";
     WebDriver driver= new ChromeDriver();
     driver.get("https://automationexercise.com/");
+    String actualTitle = driver.getTitle();
+
+     Assert.assertEquals(actualTitle,expectedTitle);   
 
     driver.manage().window().maximize();
     driver.findElement(By.cssSelector("#header > div > div > div > div.col-sm-8 > div > " +
